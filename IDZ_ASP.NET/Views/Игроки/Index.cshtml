@@ -1,0 +1,37 @@
+﻿@model IEnumerable<IDZ_ASP.NET.Models.Игроки>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Персоны.Фамилия)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Персоны.Имя)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Персоны.Фамилия)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_персоны }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_персоны }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_персоны })
+        </td>
+    </tr>
+}
+
+</table>

@@ -131,6 +131,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ИгрокиController.cs" />
+    <Compile Include="Controllers\ПерсоныController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +189,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Персоны\Create.cshtml" />
+    <Content Include="Views\Персоны\Delete.cshtml" />
+    <Content Include="Views\Персоны\Details.cshtml" />
+    <Content Include="Views\Персоны\Edit.cshtml" />
+    <Content Include="Views\Персоны\Index.cshtml" />
+    <Content Include="Views\Игроки\Create.cshtml" />
+    <Content Include="Views\Игроки\Delete.cshtml" />
+    <Content Include="Views\Игроки\Details.cshtml" />
+    <Content Include="Views\Игроки\Edit.cshtml" />
+    <Content Include="Views\Игроки\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

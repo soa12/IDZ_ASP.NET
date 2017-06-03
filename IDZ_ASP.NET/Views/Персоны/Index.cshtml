@@ -1,0 +1,80 @@
+﻿@model IEnumerable<IDZ_ASP.NET.Models.Персоны>
+
+@{
+    ViewBag.Title = "Персоны";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Персоны</h2>
+
+<p>
+    @Html.ActionLink("Добавить", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*
+        <th>
+            @Html.DisplayNameFor(model => model.Игроки.ID_персоны)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Тренеры.ID_персоны)
+        </th>
+        *@
+        <th>
+            @Html.DisplayNameFor(model => model.Фамилия)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Имя)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Отчество)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Дата_рождения)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Рост)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Вес)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*
+        <td>
+        @** @Html.DisplayFor(modelItem => item.Игроки.ID_персоны)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Тренеры.ID_персоны)
+        </td>
+            *@
+        <td>
+            @Html.DisplayFor(modelItem => item.Фамилия)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Имя)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Отчество)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Дата_рождения)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Рост)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Вес)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new {id = item.ID_персоны}) |
+            @Html.ActionLink("Открыть", "Details", new {id = item.ID_персоны}) |
+            @Html.ActionLink("Удалить", "Delete", new {id = item.ID_персоны})
+        </td>
+    </tr>
+}
+
+</table>

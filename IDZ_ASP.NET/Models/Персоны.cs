@@ -1,3 +1,5 @@
+using System.Net.Cache;
+
 namespace IDZ_ASP.NET.Models
 {
     using System;
@@ -29,17 +31,23 @@ namespace IDZ_ASP.NET.Models
         [StringLength(50)]
         public string Отчество { get; set; }
 
+        [Required]
         [Column("Дата рождения", TypeName = "date")]
         public DateTime Дата_рождения { get; set; }
 
+        [Required]
         public int Рост { get; set; }
 
+        [Required]
         public decimal Вес { get; set; }
 
+        [Required]
         public virtual Игроки Игроки { get; set; }
 
+        [Required]
         public virtual Тренеры Тренеры { get; set; }
 
+        [Required]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Государство> Государство { get; set; }
     }
