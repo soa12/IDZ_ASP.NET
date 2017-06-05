@@ -1,0 +1,80 @@
+﻿@model IDZ_ASP.NET.Models.Контракт_игрока_с_клубом
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены что хотите удалить?</h3>
+<div>
+    <h4>Контракт игрока</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Игроки.Персоны.Фамилия)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Игроки.Персоны.Фамилия)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Игроки.Персоны.Имя)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Игроки.Персоны.Имя)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Клубы.Название)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Клубы.Название)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Позиции_игроков.Название)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Позиции_игроков.Название)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Дата_начала)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Дата_начала)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Дата_окончания)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Дата_окончания)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Номер_на_поле)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Номер_на_поле)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

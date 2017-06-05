@@ -5,10 +5,10 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class DBForIDZ : DbContext
+    public partial class FootballDB : DbContext
     {
-        public DBForIDZ()
-            : base("name=DBForIDZ")
+        public FootballDB()
+            : base("name=FootballDB")
         {
         }
 
@@ -35,9 +35,14 @@
                 .IsUnicode(false);
 
             modelBuilder.Entity<Государство>()
+                .HasMany(e => e.Клубы)
+                .WithOptional(e => e.Государство)
+                .HasForeignKey(e => e.Страна);
+
+            modelBuilder.Entity<Государство>()
                 .HasMany(e => e.Персоны)
-                .WithMany(e => e.Государство)
-                .Map(m => m.ToTable("Гражданство").MapLeftKey("ID государства").MapRightKey("ID персоны"));
+                .WithOptional(e => e.Государство)
+                .HasForeignKey(e => e.Гражданство);
 
             modelBuilder.Entity<Достижения_игрока>()
                 .Property(e => e.Название)

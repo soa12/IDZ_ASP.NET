@@ -1,25 +1,24 @@
-﻿@model IEnumerable<IDZ_ASP.NET.Models.Персоны>
+﻿@model IEnumerable<IDZ_ASP.NET.Models.ПерсоныМодель>
 
 @{
-    ViewBag.Title = "Персоны";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Персоны</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Добавить", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        @*
+       @*
         <th>
             @Html.DisplayNameFor(model => model.Игроки.ID_персоны)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Тренеры.ID_персоны)
-        </th>
-        *@
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Фамилия)
         </th>
@@ -38,6 +37,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Вес)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Страна)
+        </th>
         <th></th>
     </tr>
 
@@ -45,12 +47,11 @@
     <tr>
         @*
         <td>
-        @** @Html.DisplayFor(modelItem => item.Игроки.ID_персоны)
+            @Html.DisplayFor(modelItem => item.Игроки.ID_персоны)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Тренеры.ID_персоны)
-        </td>
-            *@
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Фамилия)
         </td>
@@ -70,9 +71,12 @@
             @Html.DisplayFor(modelItem => item.Вес)
         </td>
         <td>
-            @Html.ActionLink("Изменить", "Edit", new {id = item.ID_персоны}) |
-            @Html.ActionLink("Открыть", "Details", new {id = item.ID_персоны}) |
-            @Html.ActionLink("Удалить", "Delete", new {id = item.ID_персоны})
+            @Html.DisplayFor(modelItem => item.Страна)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_персоны }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_персоны }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_персоны })
         </td>
     </tr>
 }

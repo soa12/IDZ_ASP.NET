@@ -1,0 +1,66 @@
+﻿@model IEnumerable<IDZ_ASP.NET.Models.КонтрактИгрокаМодель>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Контракты игроков</h2>
+
+<p>
+    @Html.ActionLink("Добавить", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Игрок)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Клуб)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Позиция)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Номер_на_поле)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Дата_начала)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Дата_окончания)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Игрок)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Клуб)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Позиция)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Номер_на_поле)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Дата_начала)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Дата_окончания)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.ID_контракта }) |
+            @Html.ActionLink("Подробно", "Details", new { id=item.ID_контракта }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_контракта })
+        </td>
+    </tr>
+}
+
+</table>

@@ -131,27 +131,30 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ИгрокиController.cs" />
+    <Compile Include="Controllers\Контракт_игрока_с_клубомController.cs" />
     <Compile Include="Controllers\ПерсоныController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBForIDZ.cs" />
-    <Compile Include="Models\Аренда_игрока.cs" />
-    <Compile Include="Models\Государство.cs" />
-    <Compile Include="Models\Достижения_игрока.cs" />
-    <Compile Include="Models\Достижения_клуба.cs" />
-    <Compile Include="Models\Игроки.cs" />
-    <Compile Include="Models\Клубы.cs" />
-    <Compile Include="Models\Контракт_игрока_с_клубом.cs" />
-    <Compile Include="Models\Контракт_тренера_с_клубом.cs" />
-    <Compile Include="Models\Персоны.cs" />
-    <Compile Include="Models\Позиции_игроков.cs" />
-    <Compile Include="Models\Сезоны.cs" />
-    <Compile Include="Models\Статистика_игрока.cs" />
-    <Compile Include="Models\Тренеры.cs" />
-    <Compile Include="Models\Чемпионат.cs" />
-    <Compile Include="Models\Чемпионат_в_сезоне.cs" />
+    <Compile Include="Data\FootballDB.cs" />
+    <Compile Include="Data\Аренда_игрока.cs" />
+    <Compile Include="Data\Государство.cs" />
+    <Compile Include="Data\Достижения_игрока.cs" />
+    <Compile Include="Data\Достижения_клуба.cs" />
+    <Compile Include="Data\Игроки.cs" />
+    <Compile Include="Data\Клубы.cs" />
+    <Compile Include="Data\Контракт_игрока_с_клубом.cs" />
+    <Compile Include="Data\Контракт_тренера_с_клубом.cs" />
+    <Compile Include="Models\КонтрактИгрока\ИзменениеКонтракИгрока.cs" />
+    <Compile Include="Models\КонтрактИгрока\КонтрактИгрокаМодель.cs" />
+    <Compile Include="Models\ПерсоныМодель.cs" />
+    <Compile Include="Data\Персоны.cs" />
+    <Compile Include="Data\Позиции_игроков.cs" />
+    <Compile Include="Data\Сезоны.cs" />
+    <Compile Include="Data\Статистика_игрока.cs" />
+    <Compile Include="Data\Тренеры.cs" />
+    <Compile Include="Data\Чемпионат.cs" />
+    <Compile Include="Data\Чемпионат_в_сезоне.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -194,11 +197,11 @@
     <Content Include="Views\Персоны\Details.cshtml" />
     <Content Include="Views\Персоны\Edit.cshtml" />
     <Content Include="Views\Персоны\Index.cshtml" />
-    <Content Include="Views\Игроки\Create.cshtml" />
-    <Content Include="Views\Игроки\Delete.cshtml" />
-    <Content Include="Views\Игроки\Details.cshtml" />
-    <Content Include="Views\Игроки\Edit.cshtml" />
-    <Content Include="Views\Игроки\Index.cshtml" />
+    <Content Include="Views\Контракт_игрока_с_клубом\Create.cshtml" />
+    <Content Include="Views\Контракт_игрока_с_клубом\Index.cshtml" />
+    <Content Include="Views\Контракт_игрока_с_клубом\Edit.cshtml" />
+    <Content Include="Views\Контракт_игрока_с_клубом\Details.cshtml" />
+    <Content Include="Views\Контракт_игрока_с_клубом\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

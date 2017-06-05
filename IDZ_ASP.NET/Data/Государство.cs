@@ -11,6 +11,7 @@ namespace IDZ_ASP.NET.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Государство()
         {
+            Клубы = new HashSet<Клубы>();
             Персоны = new HashSet<Персоны>();
         }
 
@@ -21,6 +22,9 @@ namespace IDZ_ASP.NET.Models
         [Required]
         [StringLength(50)]
         public string Наименование { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Клубы> Клубы { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Персоны> Персоны { get; set; }

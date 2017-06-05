@@ -12,13 +12,32 @@ namespace IDZ_ASP.NET.Controllers
 {
     public class ПерсоныController : Controller
     {
-        private DBForIDZ db = new DBForIDZ();
+        private FootballDB db = new FootballDB();
 
         // GET: Персоны
         public ActionResult Index()
         {
-            var персоны = db.Персоны.Include(п => п.Игроки).Include(п => п.Тренеры);
-            return View(персоны.ToList());
+            //var персоны = db.Персоны.Include(п => п.Государство);//.Include(п => п.Игроки).Include(п => п.Тренеры);
+            //return View(персоны.ToList());
+
+            List<ПерсоныМодель> Персоны = db.Персоны
+                .Include(п => п.Государство)
+                .Select(
+                    п => new ПерсоныМодель
+                    {
+                        ID_персоны = п.ID_персоны,
+                        Фамилия = п.Фамилия,
+                        Имя = п.Имя,
+                        Отчество = п.Отчество,
+                        Дата_рождения = п.Дата_рождения,
+                        Рост = п.Рост,
+                        Вес = п.Вес,
+                        Гражданство = п.Гражданство,
+                        Страна = п.Государство.Наименование
+
+                    })
+                .ToList();
+            return View(Персоны);
         }
 
         // GET: Персоны/Details/5
@@ -39,8 +58,9 @@ namespace IDZ_ASP.NET.Controllers
         // GET: Персоны/Create
         public ActionResult Create()
         {
-            ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны");
-            ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны");
+            ViewBag.Гражданство = new SelectList(db.Государство, "ID_государства", "Наименование");
+            //ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны");
+            //ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны");
             return View();
         }
 
@@ -49,7 +69,7 @@ namespace IDZ_ASP.NET.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_персоны,Фамилия,Имя,Отчество,Дата_рождения,Рост,Вес")] Персоны персоны)
+        public ActionResult Create([Bind(Include = "ID_персоны,Фамилия,Имя,Отчество,Дата_рождения,Рост,Вес,Гражданство")] Персоны персоны)
         {
             if (ModelState.IsValid)
             {
@@ -59,8 +79,9 @@ namespace IDZ_ASP.NET.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны", персоны.ID_персоны);
-            ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны", персоны.ID_персоны);
+            ViewBag.Гражданство = new SelectList(db.Государство, "ID_государства", "Наименование", персоны.Гражданство);
+            //ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны", персоны.ID_персоны);
+            //ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны", персоны.ID_персоны);
             return View(персоны);
         }
 
@@ -76,8 +97,9 @@ namespace IDZ_ASP.NET.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны", персоны.ID_персоны);
-            ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны", персоны.ID_персоны);
+            ViewBag.Гражданство = new SelectList(db.Государство, "ID_государства", "Наименование", персоны.Гражданство);
+            //ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны", персоны.ID_персоны);
+            //ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны", персоны.ID_персоны);
             return View(персоны);
         }
 
@@ -86,7 +108,7 @@ namespace IDZ_ASP.NET.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_персоны,Фамилия,Имя,Отчество,Дата_рождения,Рост,Вес")] Персоны персоны)
+        public ActionResult Edit([Bind(Include = "ID_персоны,Фамилия,Имя,Отчество,Дата_рождения,Рост,Вес,Гражданство")] Персоны персоны)
         {
             if (ModelState.IsValid)
             {
@@ -94,8 +116,9 @@ namespace IDZ_ASP.NET.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны", персоны.ID_персоны);
-            ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны", персоны.ID_персоны);
+            ViewBag.Гражданство = new SelectList(db.Государство, "ID_государства", "Наименование", персоны.Гражданство);
+           //ViewBag.ID_персоны = new SelectList(db.Игроки, "ID_персоны", "ID_персоны", персоны.ID_персоны);
+            //ViewBag.ID_персоны = new SelectList(db.Тренеры, "ID_персоны", "ID_персоны", персоны.ID_персоны);
             return View(персоны);
         }
 

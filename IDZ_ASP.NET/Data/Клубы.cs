@@ -25,8 +25,12 @@ namespace IDZ_ASP.NET.Models
         [StringLength(50)]
         public string Название { get; set; }
 
+        public Guid? Страна { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Аренда_игрока> Аренда_игрока { get; set; }
+
+        public virtual Государство Государство { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Достижения_клуба> Достижения_клуба { get; set; }
